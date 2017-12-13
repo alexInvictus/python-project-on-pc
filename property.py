@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# @Date    : 2017-12-2 13：28
+# @Version : $Id$
+# @des : 利用property给对象加上属性
+
+class Screen(object):
+    @property
+    def width(self):
+       return self._width             #私有属性前面加_或者__
+
+    @width.setter
+    def width(self,value):
+        self._width=value
+    @property
+    def height(self):
+       return self._height
+
+    @height.setter
+    def height(self,value):
+        self._height=value
+
+    @property
+    def resolution(self):
+       return self._width * self._height
+
+if __name__ == '__main__':
+# 测试:
+    s = Screen()
+    s.width = 1024
+    s.height = 768
+    print('resolution =', s.resolution)
+    if s.resolution == 786432:
+        print('测试通过!')
+    else:
+        print('测试失败!')
